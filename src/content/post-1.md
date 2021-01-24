@@ -3,6 +3,8 @@ title: "This is such a long headline and i dont know what to write so i keep con
 date: "2019-03-17"
 draft: false
 path: "/blog/example-title"
+tags:
+  - "mobx"
 ---
 # H1
 
@@ -21,7 +23,7 @@ Paragraph
 ---
 
 > This is a quote
-
+> 인용
 ---
 
 [Example.com](example.com)

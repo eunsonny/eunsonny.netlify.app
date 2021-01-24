@@ -15,6 +15,7 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
+const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -29,9 +30,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const tagTemplate = path.resolve('src/templates/tags.js')
+
   return graphql(`
     {
       allMarkdownRemark {
@@ -41,11 +44,17 @@ exports.createPages = ({ graphql, actions }) => {
               path
               draft
               date
+              tags
             }
             fields {
               slug
             }
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit:2000)  {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -63,5 +72,15 @@ exports.createPages = ({ graphql, actions }) => {
           context: {},
         })
       })
+    result.data.tagsGroup.group
+      .forEach(tag => {
+        createPage({
+          path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+          component: tagTemplate,
+          context: {
+            tag: tag.fieldValue,
+          },
+        })
+      })  
   })
 }
