@@ -179,7 +179,7 @@ const Header = ({ siteTitle }) => {
               data-name="darkMode"
               darkmode={dayNightStore.btnIsActive}
               imgUrl={
-                dayNightStore.btnIsActive ? "icons/night.png" : "icons/sun.png"
+                dayNightStore.btnIsActive ? "../../night.png" : "../../sun.png"
               }
             ></SwitchLabel>
           </ToggleWrap>
