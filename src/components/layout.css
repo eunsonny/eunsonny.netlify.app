@@ -6,6 +6,7 @@ code {
 }
 
 body {
+  height: 100%;
   margin: 0;
   font-family: "IBM Plex Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
@@ -204,6 +205,7 @@ html {
   box-sizing: inherit;
 }
 body {
+  height: 100%;
   color: hsla(0, 0%, 0%, 0.8);
   /* font-weight: normal; */
   word-wrap: break-word;

@@ -19,12 +19,15 @@ const Content = styled.div`
   max-width: 1024px;
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
+  background-color: ${(props) => props.darkmode? "#1A202C" : "#FFFFFF"};
 `
 
 const GatsbyLink = styled.a`
   margin-left: 5px;
 `
-const Layout = ({ children, darkmode }) => (
+const Layout = ({ children, darkmode }) => {
+
+  return(
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -36,9 +39,9 @@ const Layout = ({ children, darkmode }) => (
       }
     `}
     render={(data) => ( 
-      <div style={{ backgroundColor: darkmode ? "#1A202C" : "#FFFFFF", minHeight: window.innerHeight }}>
+      <div style={{ backgroundColor: darkmode ? "#1A202C" : "#FFFFFF" }}>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Content>
+        <Content darkmode={darkmode}>
           <main>{children}</main>
           <Footer darkmode={darkmode}>
             <p>
@@ -51,7 +54,7 @@ const Layout = ({ children, darkmode }) => (
       </div>
     )}
   />
-)
+)}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

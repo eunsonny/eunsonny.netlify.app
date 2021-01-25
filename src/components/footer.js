@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 
 const SiteFooter = styled.div`
   background: transparent;
+  background-color: ${(props) => props.darkmode ? "#1A202C" : "#FFFFFF"};
   max-width: 1024px;
   margin-top: 8rem;
   padding: 1rem 1.0875rem 1rem;

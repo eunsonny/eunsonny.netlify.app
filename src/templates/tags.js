@@ -17,6 +17,7 @@ const Tags = ({ pageContext, data }) => {
   const Content = styled.div`
     margin: 0 auto;
     max-width: 1024px;
+    height: 78vh;
   `
   const TitleArea = styled.div`
     margin-bottom: 2rem;

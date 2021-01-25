@@ -9,12 +9,13 @@ import { useObserver } from "mobx-react";
 // Components
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 
-
+const TagsWrap = styled.div`
+  height: 78vh;
+`
 const Tags = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,7 +50,7 @@ const TagsPage = ({
   return useObserver(() =>(
   <Layout darkmode={dayNightStore.btnIsActive}>
     <Helmet title={title} />
-    <div>
+    <TagsWrap>
       <TagsTitle darkmode={dayNightStore.btnIsActive}>Tags</TagsTitle>
       <Tags>
       {group.map((tag) => (
@@ -61,7 +62,7 @@ const TagsPage = ({
           </StyledTag>
         ))}
       </Tags>
-    </div>
+    </TagsWrap>
   </Layout>
   ))
 }

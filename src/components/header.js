@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import useStore from "../../useStore"
 import { useObserver } from "mobx-react"
-import { css } from "@emotion/core"
 
 const Content = styled.div`
   width: 100%;
@@ -17,25 +16,7 @@ const HeaderTop = styled.div`
 const ToggleWrap = styled.div`
   position: relative;
 `
-const ToggleSwitch = styled.input`
-  opacity: 0;
-  z-index: 1;
-  border-radius: 15px;
-  width: 54px;
-  height: 34px;
-  &:checked + ${SwitchLabel} {
-    background: #4fbe79;
-    &::after {
-      content: "";
-      display: block;
-      border-radius: 50%;
-      width: 26px;
-      height: 26px;
-      margin-left: 25px;
-      transition: 0.2s;
-    }
-  }
-`
+
 const SwitchLabel = styled.label`
   position: absolute;
   top: 0;
@@ -62,6 +43,27 @@ const SwitchLabel = styled.label`
     transition: 0.2s;
   }
 `
+
+const ToggleSwitch = styled.input`
+  opacity: 0;
+  z-index: 1;
+  border-radius: 15px;
+  width: 54px;
+  height: 34px;
+  &:checked + ${SwitchLabel} {
+    background: #4fbe79;
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      margin-left: 25px;
+      transition: 0.2s;
+    }
+  }
+`
+
 const HeaderBottom = styled.div`
   display: flex;
   justify-content: space-between;
