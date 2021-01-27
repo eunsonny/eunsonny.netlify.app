@@ -4,8 +4,9 @@ import styled from "@emotion/styled"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import useStore from "../../useStore"
-import { useObserver } from "mobx-react";
+import { useObserver } from "mobx-react"
 import { css } from "@emotion/core"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -48,10 +49,15 @@ const MarkdownContent = styled.div`
   a > code:hover {
     text-decoration: underline;
   }
+
+  blockquote {
+    padding: 10px;
+    background-color: yellow;
+  }
 `
 
 export default ({ data }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const { dayNightStore } = useStore()
 
   return useObserver(() => (
@@ -61,36 +67,40 @@ export default ({ data }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <Content>
-        <MarkedHeader darkmode={dayNightStore.btnIsActive}
+        <MarkedHeader
+          darkmode={dayNightStore.btnIsActive}
           css={
             dayNightStore.btnIsActive
-            ? css`
-            background-image: linear-gradient(
-              -100deg,
-              rgba(71, 235, 179, 0.15),
-              rgba(71, 235, 179, 0.8) 100%,
-              rgba(71, 235, 179, 0.25)
-            );
-          `
-        : css`
-            background-image: linear-gradient(
-              -100deg,
-              rgba(255, 250, 150, 0.15),
-              rgba(255, 250, 150, 0.8) 100%,
-              rgba(255, 250, 150, 0.25)
-            );
-          `
+              ? css`
+                  background-image: linear-gradient(
+                    -100deg,
+                    rgba(71, 235, 179, 0.15),
+                    rgba(71, 235, 179, 0.8) 100%,
+                    rgba(71, 235, 179, 0.25)
+                  );
+                `
+              : css`
+                  background-image: linear-gradient(
+                    -100deg,
+                    rgba(255, 250, 150, 0.15),
+                    rgba(255, 250, 150, 0.8) 100%,
+                    rgba(255, 250, 150, 0.25)
+                  );
+                `
           }
         >
           {post.frontmatter.title}
         </MarkedHeader>
         <HeaderDate darkmode={dayNightStore.btnIsActive}>
-          {post.frontmatter.date} - {post.fields.readingTime.text}
+          {post.frontmatter.date} -{/* {post.fields.readingTime.text} */}
         </HeaderDate>
         <MarkdownContent
           darkmode={dayNightStore.btnIsActive}
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          // dangerouslySetInnerHTML={{ __html: post.html }}
         />
+        <MarkdownContent>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MarkdownContent>
       </Content>
     </Layout>
   ))
@@ -98,18 +108,13 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       excerpt(pruneLength: 160)
       frontmatter {
         date(formatString: "DD MMMM, YYYY")
         path
         title
-      }
-      fields {
-        readingTime {
-          text
-        }
       }
     }
   }

@@ -8,6 +8,8 @@ import SEO from "../components/seo"
 import useStore from "../../useStore"
 import { useObserver } from "mobx-react"
 
+import { MDXRenderer } from "gatsby-plugin-mdx"
+
 const Content = styled.div`
   margin: 0 auto;
   max-width: 1024px;
@@ -51,8 +53,7 @@ const MarkerHeader = styled.h3`
   border-radius: 1em 0 1em 0;
 `
 
-const ContentInfo = styled.div`
-`
+const ContentInfo = styled.div``
 
 const Tag = styled(Link)`
   display: inline;
@@ -87,7 +88,7 @@ const IndexPage = ({ data }) => {
           </ViewAllTags>
         </TitleArea>
         <ContentSection>
-          {data.allMarkdownRemark.edges
+          {data.allMdx.edges
             .filter(({ node }) => {
               const rawDate = node.frontmatter.rawDate
               const date = new Date(rawDate)
@@ -141,6 +142,7 @@ const IndexPage = ({ data }) => {
                       &ndash;{" "}
                     </span>
                   )}
+                  {/* {node.frontmatter.tags && makeTagsLine()} */}
                   {node.frontmatter.tags &&
                     node.frontmatter.tags.map((tag, idx) => (
                       <Tag
@@ -172,7 +174,7 @@ export const query = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { draft: { eq: false } } }
     ) {
@@ -189,9 +191,6 @@ export const query = graphql`
           }
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           excerpt
         }
