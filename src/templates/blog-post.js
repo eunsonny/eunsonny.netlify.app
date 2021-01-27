@@ -85,7 +85,8 @@ export default ({ data }) => {
           {post.frontmatter.title}
         </MarkedHeader>
         <HeaderDate darkmode={dayNightStore.btnIsActive}>
-          {post.frontmatter.date} - {post.fields.readingTime.text}
+          {post.frontmatter.date} - 
+          {/* {post.fields.readingTime.text} */}
         </HeaderDate>
         <MarkdownContent
           darkmode={dayNightStore.btnIsActive}
@@ -105,11 +106,6 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
-      }
-      fields {
-        readingTime {
-          text
-        }
       }
     }
   }
