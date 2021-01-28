@@ -11,15 +11,27 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 import { MDXProvider } from "@mdx-js/react"
-import CodeBlock from "./CodeBlock"
+import CodeBlock from "./CodeBlock";
+import { preToCodeBlock } from "mdx-utils";
 
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
+// const components = {
+//   pre: (props) => <div {...props} />,
+//   code: CodeBlock,
+// }
+
 const components = {
-  pre: (props) => <div {...props} />,
-  code: CodeBlock,
+  pre: (preProps) => {
+    const props = preToCodeBlock(preProps)
+    if (props) {
+      return <CodeBlock {...props} />
+    } else {
+      return <pre {...preProps} />
+    }
+  },
 }
 
 const Content = styled.div`

@@ -32,12 +32,12 @@ Paragraph
 
 `const foo = bar`
 
-```javascript
+```javascript {1}
 const foo = bar
 console.log(foo);
 ```
 
-```jsx
+```jsx:title=src/components/blog.tsx {2,4-5}
 import React from "react";
 const Blog = ({ posts }: PostsProps) => {
   const { tagsPath, basePath } = useSiteMetadata();
