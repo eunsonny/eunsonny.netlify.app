@@ -4,7 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import theme from "prism-react-renderer/themes/nightOwl"
 import Title from "./title";
-import Button from "./button";
+import Button from "./Button";
 
 
 const getParams = (className = ``) => {
