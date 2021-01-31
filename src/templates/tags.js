@@ -9,7 +9,6 @@ import { useObserver } from "mobx-react"
 
 import Layout from "../components/layout"
 
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext

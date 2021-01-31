@@ -13,7 +13,6 @@ import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 
-import { MDXProvider } from "gatsby-plugin-mdx";
 
 const TagsWrap = styled.div`
   height: 78vh;
