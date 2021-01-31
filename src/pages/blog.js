@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import useStore from "../../useStore"
 import { useObserver } from "mobx-react"
+import Tags from "../components/Tags"
 
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -62,6 +63,9 @@ const Tag = styled(Link)`
   font-size: 0.95rem;
   font-weight: 400;
   text-decoration: none;
+  background-color: #efefef;
+  border-radius: 10px;
+  padding: 4px;
 
   &:hover {
     text-decoration: underline;
@@ -142,8 +146,7 @@ const IndexPage = ({ data }) => {
                       &ndash;{" "}
                     </span>
                   )}
-                  {/* {node.frontmatter.tags && makeTagsLine()} */}
-                  {node.frontmatter.tags &&
+                  {/* {node.frontmatter.tags &&
                     node.frontmatter.tags.map((tag, idx) => (
                       <Tag
                         darkmode={dayNightStore.btnIsActive}
@@ -152,7 +155,8 @@ const IndexPage = ({ data }) => {
                       >
                         {tag}
                       </Tag>
-                    ))}
+                    ))} */}
+                <Tags darkmode={dayNightStore.btnIsActive} tags={node.frontmatter.tags}></Tags>
                 </ContentInfo>
                 <Intro darkmode={dayNightStore.btnIsActive}>
                   {node.excerpt}

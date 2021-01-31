@@ -10,9 +10,13 @@ const TitleContainer = styled.div`
   align-items: center;
 `;
 
-const Text = styled.h4`
+const Text = styled.span`
   margin: 0px;
   color: black;
+  font-size: 14px;
+  font-family: inter, sans-serif;
+  font-weight: bold;
+  line-height: 16px;
 `;
 
 const LanguageTag = styled.div`

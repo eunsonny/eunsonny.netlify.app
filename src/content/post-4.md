@@ -4,7 +4,7 @@ date: "2021-01-10"
 draft: false
 path: "/blog/test"
 tags: 
-  - "NextJS"
+  - "nextJS"
   - "mobx"
 ---
 

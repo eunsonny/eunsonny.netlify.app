@@ -23,6 +23,7 @@ const MarkedHeader = styled.h1`
 const HeaderDate = styled.h4`
   margin-top: 10px;
   color: ${(props) => (props.darkmode ? "#7F8EA3" : "#606060")};
+  font-weight: 500;
 `
 
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
@@ -52,7 +53,10 @@ const MarkdownContent = styled.div`
 
   blockquote {
     padding: 10px;
-    background-color: yellow;
+    background-color: #fffbed; 
+    border-left: 5px solid #ffe996;
+    /* border-left: 5px solid #f99; */
+    /* background-color: #ffeeed; */
   }
 `
 
@@ -92,7 +96,7 @@ export default ({ data }) => {
           {post.frontmatter.title}
         </MarkedHeader>
         <HeaderDate darkmode={dayNightStore.btnIsActive}>
-          {post.frontmatter.date} -{/* {post.fields.readingTime.text} */}
+          {post.frontmatter.date} {/* - {post.fields.readingTime.text} */}
         </HeaderDate>
         <MarkdownContent
           darkmode={dayNightStore.btnIsActive}

@@ -96,6 +96,7 @@ export default ({ children, className, metastring, codeString, ...props }) => {
                 setIsCopied(true)
                 setTimeout(() => setIsCopied(false), 3000)
               }}
+              ifTitle={ifTitle}
             >
               {isCopied ? "🎉 Copied!" : "Copy"}
             </Button>

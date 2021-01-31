@@ -22,8 +22,8 @@ Paragraph
 
 ---
 
-> This is a quote
-> 인용
+> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+
 ---
 
 [Example.com](example.com)
@@ -32,7 +32,7 @@ Paragraph
 
 `const foo = bar`
 
-```javascript {1}
+```javascript {2}
 const foo = bar
 console.log(foo);
 ```
