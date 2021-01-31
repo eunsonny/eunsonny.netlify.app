@@ -20,7 +20,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit:2000)  {
+      tagsGroup: allMdx(limit:2000)  {
         group(field: frontmatter___tags) {
           fieldValue
         }
@@ -62,7 +62,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
-    result.data.allMarkdownRemark.edges
+    result.data.allMdx.edges
       .filter(({ node }) => !node.frontmatter.draft)
       .forEach(({ node }) => {
         createPage({
