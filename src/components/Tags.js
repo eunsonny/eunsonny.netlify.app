@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import { Fragment } from "react";
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import React, { Fragment } from "react";
+import { Link } from "gatsby";
+import styled from "@emotion/styled";
+import kebabCase from "lodash/kebabCase";
 
 const Tags = ({ tags, darkmode }) => {
 
@@ -26,7 +26,7 @@ const Tags = ({ tags, darkmode }) => {
           {!!i && ", "}
           <Tag
             darkmode={darkmode}
-            to={`/tags/${tag}`}
+            to={`/tags/${kebabCase(tag)}`}
           >
             {tag}
           </Tag>

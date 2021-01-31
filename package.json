@@ -27,6 +27,7 @@
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-transformer-remark": "^2.8.23",
     "gatsby-transformer-sharp": "^2.5.10",
+    "lodash": "^4.17.20",
     "mdx-utils": "^0.2.0",
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",

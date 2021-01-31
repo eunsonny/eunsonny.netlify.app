@@ -18,10 +18,6 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
-// const components = {
-//   pre: (props) => <div {...props} />,
-//   code: CodeBlock,
-// }
 
 const components = {
   pre: (preProps) => {

@@ -6,16 +6,6 @@ import theme from "prism-react-renderer/themes/nightOwl"
 import Title from "./title";
 import Button from "./button";
 
-// const calculateLinesToHighlight = (meta) => {
-//   const RE = /{([\d,-]+)}/
-//   if (RE.test(meta)) {
-//     const strlineNumbers = RE.exec(meta)[1]
-//     const lineNumbers = rangeParser(strlineNumbers)
-//     return (index) => (lineNumbers.includes(index + 1))
-//   } else {
-//     return () => false
-//   }
-// };
 
 const getParams = (className = ``) => {
   const [lang = ``, params = ``] = className.split(`:`)

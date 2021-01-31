@@ -1,5 +1,4 @@
 import React from "react";
-import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 
 const TitleContainer = styled.div`

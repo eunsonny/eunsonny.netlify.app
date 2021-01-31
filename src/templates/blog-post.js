@@ -55,8 +55,6 @@ const MarkdownContent = styled.div`
     padding: 10px;
     background-color: #fffbed; 
     border-left: 5px solid #ffe996;
-    /* border-left: 5px solid #f99; */
-    /* background-color: #ffeeed; */
   }
 `
 
@@ -96,7 +94,7 @@ export default ({ data }) => {
           {post.frontmatter.title}
         </MarkedHeader>
         <HeaderDate darkmode={dayNightStore.btnIsActive}>
-          {post.frontmatter.date} {/* - {post.fields.readingTime.text} */}
+          {post.frontmatter.date}
         </HeaderDate>
         <MarkdownContent
           darkmode={dayNightStore.btnIsActive}
