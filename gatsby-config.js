@@ -24,17 +24,26 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     plugins: [
+        //   `gatsby-remark-reading-time`, {
+        //   resolve: `gatsby-remark-prismjs`,
+        //   options: {
+        //     aliases:{sh: "bash", js:"javascript"},
+        //     showLineNumbers: true,
+        //   }
+        // }
+    //   ],
+    //   },
+    // },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [`gatsby-remark-reading-time`, {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            aliases:{sh: "bash", js:"javascript"},
-            showLineNumbers: true,
-          }
-        }],
-      },
+        gatsbyRemarkPlugins: [ ],
+        extensions: [`.md`, `.mdx`],
+      }
     },
     {
       resolve: `gatsby-plugin-netlify`,

@@ -9,9 +9,11 @@ import { useObserver } from "mobx-react"
 
 import Layout from "../components/layout"
 
+import { MDXRenderer } from "gatsby-plugin-mdx";
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { edges, totalCount } = data.allMdx
   const { dayNightStore } = useStore()
 
   const Content = styled.div`
@@ -58,7 +60,7 @@ const Tags = ({ pageContext, data }) => {
   const ArticleDate = styled.h5`
     font-weight: 400;
     display: inline;
-    color: ${(props) => (props.darkmode ? '#7F8EA3' : '#606060')};
+    color: ${(props) => (props.darkmode ? "#7F8EA3" : "#606060")};
   `
   return useObserver(() => (
     <Layout darkmode={dayNightStore.btnIsActive}>
@@ -123,7 +125,7 @@ Tags.propTypes = {
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -143,7 +145,7 @@ Tags.propTypes = {
 export default Tags
 export const pageQuery = graphql`
   query($tag: String) {
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
