@@ -619,29 +619,45 @@ a::selection {
   background: #fffa96cc;
 }
 
-/* .gatsby-highlight {
+.gatsby-highlight {
   background-color: #1d1f21;
   border-radius: 0.3em;
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
-} */
+}
 
-/* .highlight-line {
-  background-color: rgb(53, 59, 69);
+.highlight-line {
+  background-color: rgb(60, 63, 69);
   display: block;
   margin-right: -1em;
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
-  border-left: 0.3em solid #f99;
-} */
+  border-left: 0.3em solid #fffa96;
+}
 
-/* .gatsby-highlight pre[class*="language-"].line-numbers {
+pre[class*="language-jsx"]::before {
+	content: "JSX";
+	background-color: #61dafb;
+	font-family: inter, sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	color: black;
+	/* padding: 0.3rem; */
+	padding: 0.2rem 0.4rem;
+	position: absolute;
+	top: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	/* left: 1rem; */
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
   padding: 0;
   padding-left: 2.8em;
   overflow: initial;
-} */
+}
 
 @media only screen and (max-width: 480px) {
   html {
