@@ -644,12 +644,11 @@ pre[class*="language-jsx"]::before {
 	font-size: 12px;
 	line-height: 12px;
 	color: black;
-	padding: 0.2rem 0.4rem;
+	padding: 0.1rem 0.4rem;
 	position: absolute;
 	top: 0;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	/* left: 1rem; */
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
