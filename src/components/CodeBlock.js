@@ -78,7 +78,7 @@ export default ({ children, className, metastring, codeString, ...props }) => {
           ) : null}
           <pre
             className={className}
-            style={{ ...style, ...ifTitle, position: "relative" }}
+            style={{ ...style, ...ifTitle, position: "relative", padding: "1.5em 1em" }}
           >
              <Button
               onClick={() => {
