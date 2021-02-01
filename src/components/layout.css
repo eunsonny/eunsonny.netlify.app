@@ -646,7 +646,7 @@ pre[class*="language-jsx"]::before {
 	color: black;
 	padding: 0.2rem 0.4rem;
 	position: absolute;
-	top: -1;
+	top: 0;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	/* left: 1rem; */
