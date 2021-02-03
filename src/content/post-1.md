@@ -91,6 +91,8 @@ const Blog = ({ posts }: PostsProps) => {
 export default Blog;
 ```
 
+<!-- ### NextJs란 무엇인가? -->
+
 ---
 
 | Hello | World |

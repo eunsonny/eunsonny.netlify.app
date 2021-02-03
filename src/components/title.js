@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const TitleContainer = styled.div`
-  background-color: #d2c7ec;
+  background-color: #feee91;
   padding: 10px;
   display: flex;
   justify-content: space-between;

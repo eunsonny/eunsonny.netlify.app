@@ -21,8 +21,8 @@ const SwitchLabel = styled.label`
   position: absolute;
   top: 0;
   left: 0;
-  width: 54px;
-  height: 34px;
+  width: 50px;
+  height: 30px;
   border-radius: 25px;
   background-color: #bebebe;
   cursor: pointer;
@@ -31,8 +31,8 @@ const SwitchLabel = styled.label`
     content: "";
     display: block;
     border-radius: 50%;
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     margin: 4px;
     background: #ffffff;
     background-image: url(${(props) => props.imgUrl});
@@ -56,8 +56,8 @@ const ToggleSwitch = styled.input`
       content: "";
       display: block;
       border-radius: 50%;
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       margin-left: 25px;
       transition: 0.2s;
     }
@@ -67,7 +67,7 @@ const ToggleSwitch = styled.input`
 const HeaderBottom = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid
     ${(props) => (props.darkmode ? "#2D3748" : "#CFCEBD")};
