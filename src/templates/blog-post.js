@@ -33,9 +33,12 @@ const HeaderDate = styled.h4`
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
 const MarkdownContent = styled.div`
   color: ${(props) => (props.darkmode ? "#CBD5E0" : "#282828")};
+  padding: 50px 0px;
+  max-width: 820px;
 
   p {
     color: ${(props) => (props.darkmode ? "#CBD5E0" : "#282828")};
+    line-height: 1.7;
   }
 
   a {
@@ -60,7 +63,7 @@ const MarkdownContent = styled.div`
   }
 
   blockquote {
-    padding: 10px;
+    padding: 20px;
     background-color: #fffbed;
     border-left: 5px solid #ffe996;
 
