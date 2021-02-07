@@ -1,6 +1,6 @@
 ---
 title: "writeHead method"
-date: "2021-02-03"
+date: "2021-02-04"
 draft: false
 path: "/blog/writeHead-method"
 tags: ["NodeJs", "WIL"]
