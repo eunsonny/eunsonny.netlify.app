@@ -33,7 +33,6 @@ const HighLight = styled.span`
   border-radius: 1em 0 1em 0;
 `
 
-
 const LandingBio = ({ darkmode }) => (
   <StaticQuery
     query={graphql`
@@ -57,7 +56,8 @@ const LandingBio = ({ darkmode }) => (
           {/* <SubTitle>Hi! everyone</SubTitle> */}
           {/* <span>Hi! everyone</span> */}
           <Description darkmode={darkmode}>
-            I'm Lupin - currently teaching{" "}
+            {/* I'm Eunsun and  */}
+            I'm a Front-end Developer - currently working hard to create a{" "}
             <HighLight
               darkmode={darkmode}
               css={
@@ -80,11 +80,10 @@ const LandingBio = ({ darkmode }) => (
                     `
               }
             >
-              "Defense against the Dark Arts"
+              positive stimulus in people's daily lives {" "}
             </HighLight>
-            at Hogwarts, Great Britain. I recently published a book called Those
-            nasty Dementors. It teaches everything you need to know about
-            defending against Dementors.
+             through computer language. This blog contains things I learn, feel,
+            and want to share as I make those efforts.
           </Description>
         </Container>
       </OuterContainer>
