@@ -92,20 +92,9 @@ const MarkdownContent = styled.div`
 `
 
 export default ({ data }) => {
-  const [isWindowWide, setIsWindowWide] = useState(true);
   const post = data.mdx;
   const { dayNightStore } = useStore();
 
-  useEffect (() => {
-    setWindowSize();
-    window.addEventListener("resize", setWindowSize);
-  });
-
-  const setWindowSize = () => {
-    window.innerWidth < 1200 ? setIsWindowWide(false) : setIsWindowWide(true);
-  }
-
-  console.log(window.innerWidth)
   return useObserver(() => (
     <Layout darkmode={dayNightStore.btnIsActive}>
       <SEO

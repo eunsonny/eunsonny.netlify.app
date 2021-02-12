@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 import useStore from "../../useStore"
 import { useObserver } from "mobx-react"
 import Tags from "../components/Tags"
+import Search from "../components/Search";
 
 
 const Content = styled.div`
@@ -36,7 +37,8 @@ const ViewAllTags = styled(Link)`
 `
 
 const ContentSection = styled.section`
-  margin: 4rem auto 4rem;
+  /* margin: 4rem auto 4rem; */
+  margin: 2rem auto 4rem;
 `
 
 const ArticleDate = styled.h5`
@@ -74,6 +76,7 @@ const IndexPage = ({ data }) => {
             View All Tags
           </ViewAllTags>
         </TitleArea>
+        <Search />
         <ContentSection>
           {data.allMdx.edges
             .filter(({ node }) => {
