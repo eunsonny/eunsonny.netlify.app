@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
@@ -8,14 +8,32 @@ import { useObserver } from "mobx-react"
 import { css } from "@emotion/core"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+// import TableOfContents from "../components/TableOfContents";
+import TableOfContent from "../components/TableOfContent";
+
 const BlogPostWrap = styled.div`
+  display: flex;
+  position: relative;
+  margin-right: 20px;
+
+  @media only screen and (min-width: 1300px) {
+    width: 1250px;
+  }
+`
+const BlogPostContentWrap = styled.div`
   min-height: 78vh;
+  position: relative;
+
+  @media only screen and (min-width: 1300px) {
+    width: 900px;
+  }
 `
 
 const Content = styled.div`
   margin: 0 auto;
   max-width: 1024px;
   padding: 1.45rem 1.0875rem;
+  position: relative;
 `
 
 const MarkedHeader = styled.h1`
@@ -74,9 +92,20 @@ const MarkdownContent = styled.div`
 `
 
 export default ({ data }) => {
-  const post = data.mdx
-  const { dayNightStore } = useStore()
+  const [isWindowWide, setIsWindowWide] = useState(true);
+  const post = data.mdx;
+  const { dayNightStore } = useStore();
 
+  useEffect (() => {
+    setWindowSize();
+    window.addEventListener("resize", setWindowSize);
+  });
+
+  const setWindowSize = () => {
+    window.innerWidth < 1200 ? setIsWindowWide(false) : setIsWindowWide(true);
+  }
+
+  console.log(window.innerWidth)
   return useObserver(() => (
     <Layout darkmode={dayNightStore.btnIsActive}>
       <SEO
@@ -84,42 +113,47 @@ export default ({ data }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <BlogPostWrap>
-        <Content>
-          <MarkedHeader
-            darkmode={dayNightStore.btnIsActive}
-            css={
-              dayNightStore.btnIsActive
-                ? css`
-                    background-image: linear-gradient(
-                      -100deg,
-                      rgba(71, 235, 179, 0.15),
-                      rgba(71, 235, 179, 0.8) 100%,
-                      rgba(71, 235, 179, 0.25)
-                    );
-                  `
-                : css`
-                    background-image: linear-gradient(
-                      -100deg,
-                      rgba(255, 250, 150, 0.15),
-                      rgba(255, 250, 150, 0.8) 100%,
-                      rgba(255, 250, 150, 0.25)
-                    );
-                  `
-            }
-          >
-            {post.frontmatter.title}
-          </MarkedHeader>
-          <HeaderDate darkmode={dayNightStore.btnIsActive}>
-            {post.frontmatter.date}
-          </HeaderDate>
-          {/* <MarkdownContent
+        <BlogPostContentWrap>
+          <Content>
+            <MarkedHeader
+              darkmode={dayNightStore.btnIsActive}
+              css={
+                dayNightStore.btnIsActive
+                  ? css`
+                      background-image: linear-gradient(
+                        -100deg,
+                        rgba(71, 235, 179, 0.15),
+                        rgba(71, 235, 179, 0.8) 100%,
+                        rgba(71, 235, 179, 0.25)
+                      );
+                    `
+                  : css`
+                      background-image: linear-gradient(
+                        -100deg,
+                        rgba(255, 250, 150, 0.15),
+                        rgba(255, 250, 150, 0.8) 100%,
+                        rgba(255, 250, 150, 0.25)
+                      );
+                    `
+              }
+            >
+              {post.frontmatter.title}
+            </MarkedHeader>
+            <HeaderDate darkmode={dayNightStore.btnIsActive}>
+              {post.frontmatter.date}
+            </HeaderDate>
+            {/* <MarkdownContent
           darkmode={dayNightStore.btnIsActive}
           // dangerouslySetInnerHTML={{ __html: post.html }}
         /> */}
-          <MarkdownContent darkmode={dayNightStore.btnIsActive}>
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </MarkdownContent>
-        </Content>
+            <MarkdownContent darkmode={dayNightStore.btnIsActive}>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </MarkdownContent>
+          </Content>
+        </BlogPostContentWrap>
+        {/* <TableOfContents items={post.tableOfContents.items}></TableOfContents> */}
+        {/* {isWindowWide ? <TableOfContent items={post.tableOfContents.items}></TableOfContent> : null} */}
+        <TableOfContent items={post.tableOfContents.items}></TableOfContent>
       </BlogPostWrap>
     </Layout>
   ))
@@ -130,8 +164,10 @@ export const pageQuery = graphql`
     mdx(frontmatter: { path: { eq: $path } }) {
       body
       excerpt(pruneLength: 160)
+      tableOfContents
       frontmatter {
         date(formatString: "DD MMMM, YYYY")
+        description
         path
         title
       }

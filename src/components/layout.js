@@ -33,6 +33,7 @@ const components = {
 const Content = styled.div`
   margin: 0 auto;
   max-width: 1024px;
+  /* max-width: 1250px; */
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
   background-color: ${(props) => (props.darkmode ? "#1A202C" : "#FFFFFF")};

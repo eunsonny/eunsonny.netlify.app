@@ -2,6 +2,7 @@
 title: "React Router History: push와 replace의 차이점"
 date: "2021-02-07"
 draft: false
+description: "설명입니다"
 path: "/blog/router-replace"
 tags: ["router", "replace", "push"]
 ---
