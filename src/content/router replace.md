@@ -29,8 +29,8 @@ export default Home;
 
 > Pushes a new entry onto the history stack
 
-history stack에 새로운 엔트리를 쌓는다고 말하고 있다. 즉 `history push`를 이용해서 `Home > about > login > about`을 이동한다면  
-이동순서 그대로 `Home > about > login > about`이 history stack에 쌓이게 된다. 그래서 유저가 마지막인 about페이지에서 뒤로가기 버튼을 누르면 login 페이지로 되돌아 가게 되고 
+history stack에 새로운 엔트리를 쌓는다고 말하고 있다. 즉 `history push` 를 이용해서 `Home > about > login > about` 을 이동한다면  
+이동순서 그대로 `Home > about > login > about` 이 history stack에 쌓이게 된다. 그래서 유저가 마지막인 about페이지에서 뒤로가기 버튼을 누르면 login 페이지로 되돌아 가게 되고 
 그 다음에는 다시 about 페이지 그 다음엔 Home으로 돌아가게 될 것이다. 
 <br/><br/><br/>
 

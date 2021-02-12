@@ -132,7 +132,7 @@ const IndexPage = ({ data }) => {
                 <Tags darkmode={dayNightStore.btnIsActive} tags={node.frontmatter.tags}></Tags>
                 </ContentInfo>
                 <Intro darkmode={dayNightStore.btnIsActive}>
-                  {node.excerpt}
+                  {node.frontmatter.description}
                 </Intro>
               </div>
             ))}
@@ -165,6 +165,7 @@ export const query = graphql`
             rawDate: date
             path
             tags
+            description
           }
           fields {
             slug
