@@ -4,6 +4,7 @@ date: "2021-02-07"
 draft: false
 path: "/blog/router-replace"
 tags: ["router", "replace", "push"]
+description: Router history push와 replace의 차이점은 무엇이고 어떠한 상황에서 무엇을 사용해야 하는지 알아보자!
 ---
 
 ### Push
